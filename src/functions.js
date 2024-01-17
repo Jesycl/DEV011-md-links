@@ -3,7 +3,7 @@ const fs = require('fs');
 
 //saber si la ruta es absoluta
 const isAbsolutePath = (route) => path.isAbsolute(route);
-
+//console.log(isAbsolutePath('C:/LABORATORIA/MD_LINKS/DEV011-md-links/docs/05-milestone.md'));
 //si es relativa convertir a absoluta
 const convertAbsolute = (route) => path.resolve(route);
 //console.log(convertAbsolute('docs/04-milestone.md'));
@@ -39,9 +39,9 @@ const extractLinks = (content, filePath) => {
 
     while ((match = regex.exec(content)) !== null) {
         links.push({
-            text: match[1],
-            href: match[2],
-            file: filePath,
+            text: match[1], //texto
+            href: match[2], // URL
+            file: filePath, // ruta
         });
     }
 
@@ -51,9 +51,8 @@ const extractLinks = (content, filePath) => {
 const validateLinks = (links) => {
     return new Promise((resolve) => {
         links.forEach((link) => {
-            // En este ejemplo, asumimos que todos los links tienen un código de respuesta HTTP 200
             link.status = 200;
-            link.ok = 'ok'; // Mensaje de éxito
+            link.ok = 'ok'; 
         });
         resolve(links);
     });

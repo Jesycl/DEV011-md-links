@@ -39,7 +39,7 @@ describe('routeExists', () => {
 
   test('debería devolver false si la ruta no existe', () => {
     // Supongamos que tienes una ruta que no existe en tu sistema de archivos
-    const nonExistingRoute = 'docs/06-milestone.md';
+    const nonExistingRoute = 'docs/07-milestone.md';
     const result = routeExists(nonExistingRoute);
     expect(result).toBe(false);
   });
